@@ -15,7 +15,15 @@ const studentSchema = {
   githubUrl: {
     type: String,
     require: true,
-    maxLength: 50,
+    validate: {
+      validator: function (v) {
+        return /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/i.test(
+          v
+        );
+      },
+      message: (props) =>
+        `${props.value} | this is an incorrect format for github profile url`,
+    },
   },
 
   assignments: [assignmentSchema],
