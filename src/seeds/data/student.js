@@ -2,7 +2,7 @@ const students = [
   {
     firstName: "Bob",
     lastName: "Smith",
-    githubUrl: "https://github.com/bob.smith",
+    githubUrl: "https://github.com/bobsmith",
     assignments: [
       { assignmentName: "HTML Intro", score: 90 },
       {
@@ -18,7 +18,7 @@ const students = [
   {
     firstName: "Jane",
     lastName: "Smith",
-    githubUrl: "https://github.com/jane.smith",
+    githubUrl: "https://github.com/janesmith",
     assignments: [
       {
         assignmentName: "HTML Intro",
@@ -37,7 +37,7 @@ const students = [
   {
     firstName: "Jack",
     lastName: "Smith",
-    githubUrl: "https://github.com/jack.smith",
+    githubUrl: "https://github.com/jacksmith",
     assignments: [
       { assignmentName: "HTML Intro", score: 40 },
       {
@@ -53,7 +53,7 @@ const students = [
   {
     firstName: "Tom",
     lastName: "Smith",
-    githubUrl: "https://github.com/tom.smith",
+    githubUrl: "https://github.com/tomsmith",
     assignments: [
       { assignmentName: "HTML Intro", score: 85 },
       {
@@ -69,7 +69,7 @@ const students = [
   {
     firstName: "Jill",
     lastName: "Smith",
-    githubUrl: "https://github.com/jill.smith",
+    githubUrl: "https://github.com/jillsmith",
     assignments: [
       { assignmentName: "HTML Intro", score: 60 },
       {
