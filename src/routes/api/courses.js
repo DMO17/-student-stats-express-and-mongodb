@@ -13,7 +13,7 @@ const router = Router();
 router.get("/", getAllCourses);
 router.get("/:courseId", getCourseById);
 router.post("/", createACourse);
-router.get("/:courseId", updateACourseById);
-router.get("/:courseId", deleteCourseById);
+router.put("/:courseId", updateACourseById);
+router.delete("/:courseId", deleteCourseById);
 
 module.exports = router;

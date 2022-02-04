@@ -15,8 +15,8 @@ const router = Router();
 router.get("/", getAllStudents);
 router.get("/:studentId", getStudentById);
 router.post("/", createAStudent);
-router.get("/:studentId", updateAStudentById);
-router.get("/:studentId", deleteStudentById);
+router.put("/:studentId", updateAStudentById);
+router.delete("/:studentId", deleteStudentById);
 
 router.use("/studentId/assignments", assignments);
 
