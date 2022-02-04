@@ -2,7 +2,7 @@ const express = require("express");
 
 const routes = require("./routes");
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(routes);
 
 const init = async () => {
   app.listen(PORT, () =>
-    console.log(`server running at http://localhost:${PORT}`)
+    console.log(`Server running on http://localhost:${PORT}`)
   );
 };
 
