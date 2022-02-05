@@ -1,8 +1,62 @@
-const getAllStudents = (req, res) => {};
-const getStudentById = (req, res) => {};
+const { Student } = require("../../models");
+
+const getAllStudents = async (req, res) => {
+  try {
+    const allStudents = await Student.find({});
+
+    return res.json({ success: true, data: allStudents });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get students | ${error.message}`);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to get students" });
+  }
+};
+
+const getStudentById = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const singleStudent = await Student.findById(studentId);
+
+    if (!singleStudent) {
+      console.log("[ERROR]: No student with that ID exists");
+      return res
+        .status(400)
+        .json({ success: false, message: "Failed to get student" });
+    }
+
+    return res.json({ success: true, data: singleStudent });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get student | ${error.message}`);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to get student" });
+  }
+};
+
 const createAStudent = (req, res) => {};
 const updateAStudentById = (req, res) => {};
-const deleteStudentById = (req, res) => {};
+
+const deleteStudentById = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+    const singleStudent = await Student.findByIdAndDelete(studentId);
+
+    if (!singleStudent) {
+      console.log("[ERROR]: No student with that ID exists");
+      return res
+        .status(400)
+        .json({ success: false, message: "Failed to delete student" });
+    }
+
+    return res.json(singleStudent);
+  } catch (error) {
+    console.log(`[ERROR]: Failed to get student | ${error.message}`);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to get student" });
+  }
+};
 
 module.exports = {
   getAllStudents,
