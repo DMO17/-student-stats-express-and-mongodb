@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const moment = require("moment");
 
-const courseSchema = new Schema({
+const courseSchema = {
   courseName: {
     type: String,
     required: true,
@@ -26,8 +26,19 @@ const courseSchema = new Schema({
       ref: "student",
     },
   ],
+};
+
+const schema = new Schema(courseSchema, {
+  toJSON: {
+    getters: true,
+  },
+  id: false,
 });
 
-const Course = model("course", courseSchema);
+schema.virtual("numberOfEnrolledStudents").get(function () {
+  return this.students.length;
+});
+
+const Course = model("course", schema);
 
 module.exports = Course;
