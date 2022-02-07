@@ -34,7 +34,25 @@ const getStudentById = async (req, res) => {
   }
 };
 
-const createAStudent = (req, res) => {};
+const createAStudent = async (req, res) => {
+  try {
+    const { firstName, lastName, githubUrl } = req.body;
+
+    const createStudent = await Student.create({
+      firstName,
+      lastName,
+      githubUrl,
+    });
+
+    return res.json({ success: true, data: createStudent });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to to create student | ${error.message}`);
+    return res
+      .status(500)
+      .json({ success: false, error: "Failed to create student" });
+  }
+};
+
 const updateAStudentById = (req, res) => {};
 
 const deleteStudentById = async (req, res) => {

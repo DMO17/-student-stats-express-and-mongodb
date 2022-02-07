@@ -10,6 +10,7 @@ const assignmentSchema = new Schema({
   assignmentName: {
     type: String,
     required: true,
+    unique: true,
     minLength: 4,
     maxLength: 50,
   },

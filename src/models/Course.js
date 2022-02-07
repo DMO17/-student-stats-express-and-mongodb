@@ -6,6 +6,7 @@ const courseSchema = {
   courseName: {
     type: String,
     required: true,
+    unique: true,
     maxLength: 100,
   },
   inPerson: {
