@@ -1,7 +1,5 @@
 const { Router } = require("express");
 
-const assignments = require("./assignments");
-
 const {
   getAllStudents,
   getStudentById,
@@ -9,6 +7,8 @@ const {
   updateAStudentById,
   deleteStudentById,
 } = require("../../controller/api/students");
+
+const assignments = require("./assignments");
 
 const router = Router();
 
@@ -18,6 +18,6 @@ router.post("/", createAStudent);
 router.put("/:studentId", updateAStudentById);
 router.delete("/:studentId", deleteStudentById);
 
-router.use("/studentId/assignments", assignments);
+router.use("/:studentId/assignments", assignments);
 
 module.exports = router;

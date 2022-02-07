@@ -2,12 +2,12 @@ const { Router } = require("express");
 
 const {
   createAssignment,
-  getAllAssignment,
+  deleteAssignment,
 } = require("../../controller/api/assignments");
 
-const router = Router();
+const router = Router({ mergeParams: true });
 
 router.post("/", createAssignment);
-router.delete("/:assignmentId", getAllAssignment);
+router.delete("/:assignmentId", deleteAssignment);
 
 module.exports = router;
