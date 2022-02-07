@@ -25,11 +25,12 @@ const createAssignment = async (req, res) => {
     const filter = { _id: studentId };
     const assignments = { studentAssignment };
 
-    const student = await Student.updateOne(filter, {
+    const student = await Student.findByIdAndUpdate(studentId, {
       $push: { assignments },
     });
 
-    // console.log(student);
+    console.log(studentAssignment);
+    console.log(student);
     // student.assignments.push(studentAssignment);
 
     res.json({ success: true, data: student });
